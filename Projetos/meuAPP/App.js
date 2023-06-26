@@ -1,54 +1,25 @@
 //Importando o react
 import React, {useState} from "react";
 //Importando os itens do react-native
-import {View, Text, StyleSheet} from 'react-native';
-import {Picker} from '@react-native-picker/picker';
+import {NavigationContainer} from '@react-navigation/native';
+
+//Importando o tipo de Navegação
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+//Importando os componentes externos
+import Home from './src/pages/Home';
+import Sobre from './src/pages/Sobre';
+import Contato from './src/pages/Contato';
 
 
-function App(){
-  const [carroSelecionado, setCarroSelecionado] = useState(0);
+//Criando uma variavel para receber a navegação
+const Stack = createNativeStackNavigator();
 
-  const [carros, setCarros] = useState([
-    {key: 1, nome: "Golf 1.6", valor : 62.000},
-    {key: 2, nome: "Saveiro 1.6", valor : 29.300},
-    {key: 3, nome: "Gol 1.0", valor : 12.300},
-  ])
-
-  let carrosItem = carros.map((v, k) =>{
-    return <Picker.Item key={k} value={k} label={v.nome}/>
-  })
-
+export default function App(){
   return(
+    <NavigationContainer> 
 
-    <View styles = {styles.container}>
+    </NavigationContainer>
 
-      <Picker
-        selectedValue={carroSelecionado}
-        onValueChange={(itemValue, itemIndex) => setCarroSelecionado(itemValue)}
-      >
-      {carrosItem}
-      </Picker>
-
-      <Text style ={styles.carros}>Carros: {carros[carroSelecionado].nome}</Text>
-      <Text style ={styles.carros}>Valor: R$ {carros[carroSelecionado].valor.toFixed(3)}</Text>
-    </View>
-    
-  );
-
+  )
 }
-
-const styles = StyleSheet.create({
-  container:{
-    flex:1,
-  },
-
-  carros:{
-    marginTop: 15,
-    fontSize: 25
-  }
-
-});
-
-
-//Exportando o projeto
-export default App;
