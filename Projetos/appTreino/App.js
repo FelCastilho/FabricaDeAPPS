@@ -1,23 +1,20 @@
-import React, {useRef, useEffect} from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-
-//Importando o firebase
-import firebase from './src/firebaseConection';
+import React, {useState} from 'react';
+import {Text, View } from 'react-native';
+import {Container, Title, Nome, Botao, BotaoText} from './src/styles';
 
 export default function App() {
 
   return (
-    <View style = {styles.container}>
-      <Text>Olá, mundo!</Text>
-    </View>
+    <Container>
+      <Title>Olá, mundo!</Title>
+      <Nome>Felipe</Nome>
+
+      <Botao onPress={()=> alert("Clicou")}>
+        <BotaoText>Felipe Coutinho</BotaoText>
+      </Botao>
+
+    </Container>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 
-});

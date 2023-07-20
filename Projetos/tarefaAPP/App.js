@@ -5,6 +5,8 @@ import Login from './src/components/Login';
 import TaskList from './src/components/TaskList';
 import firebase from './src/services/firebaseConections';
 
+import { Feather } from '@expo/vector-icons';
+
 export default function App() {
   //Controlando usuário logado
   const inputref = useRef(null);
@@ -87,7 +89,6 @@ export default function App() {
     Keyboard.dismiss();
     setNewTask('');
 
-
   }
 
   //Removendo um item do banco de dados
@@ -108,12 +109,30 @@ export default function App() {
     inputref.current.focus();
   }
 
+  function cancelEdit(){
+    setKey('');
+    setNewTask('');
+    Keyboard.dismiss();
+  }
+
   if(!user){
     return <Login changeStatus={ (user) => setUser(user) }/>
   }
 
   return (
     <SafeAreaView style={styles.container}>
+
+    { key.length > 0 && (
+            <View style={{flexDirection: 'row', marginBottom:8, marginTop: 10 }}>
+            <TouchableOpacity onPress={cancelEdit}>
+              <Feather name="x-circle" size={20} color="#ff0000" />
+            </TouchableOpacity>
+    
+            <Text style={{color:"#ff0000", marginLeft: 5, }}>
+              Você está editando uma tarefa
+            </Text>
+          </View>
+    )}
 
       <View style = {styles.containerTask}>
 
