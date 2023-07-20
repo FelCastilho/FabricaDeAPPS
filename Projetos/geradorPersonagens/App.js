@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {View, Text, TouchableOpacity, StyleSheet} from "react-native";
 
+
 function App(){
 
     let dbz = ['Goku', 'Vegeta', 'Gohan', 'Goten', 'Videl'];
@@ -113,21 +114,21 @@ const styles = StyleSheet.create({
 
     btn:{
         backgroundColor: '#121212',
-        width: 100,
+        width: 200,
         color:'white',
         justifyContent:'center',
     },
 
     btnArea:{
-        justifyContent: "center",
-        alignItems:'center',
         width: 25,
         height: 50
     },
 
     btnText:{
         textAlign: 'center',
+        alignItems:'center',
         color: '#fff',
+        width: 100
     }
 })
 
