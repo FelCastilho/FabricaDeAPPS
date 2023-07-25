@@ -7,11 +7,16 @@ import SignUp from "../pages/SignUp";
 const AuthStack = createNativeStackNavigator();
 
 function AuthRoutes(){
+
     return(
+
         <AuthStack.Navigator>
             <AuthStack.Screen
             name = 'SignIn'
             component={SignIn}
+            options={{
+                headerShown:false
+            }}
             />
 
             <AuthStack.Screen
