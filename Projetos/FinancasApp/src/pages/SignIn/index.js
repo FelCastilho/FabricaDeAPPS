@@ -42,8 +42,8 @@ export default function SignIn(){
                     <Input
                     placeholder = 'Sua senha'
                     />
-                </AreaInput>
-
+                </AreaInput> 
+                
                 <SubmitButton activeOpacity={0.8}>
                     <SubmitText>Acessar</SubmitText>
                 </SubmitButton>
