@@ -1,0 +1,20 @@
+import { Route, Routes } from "react-router-dom";
+
+import Home from '../pages/Home';
+import Register from '../pages/Register';
+import Admin from "../pages/Admin";
+import Private from './private';
+
+function RoutesApp(){
+    return(
+        <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/register" element={<Register/>}/>
+
+            {/*Tornando Admin uma aba privada*/}
+            <Route path="/admin" element={<Private> <Admin/> </Private>}/>
+        </Routes>
+    )
+}
+
+export default RoutesApp
